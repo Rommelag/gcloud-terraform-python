@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils && \
     curl -L https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip -o /tmp/packer.zip && \
     unzip /tmp/terraform.zip -d /usr/local/bin/ && \
     unzip /tmp/packer.zip -d /usr/local/bin/ && \
-    pip install joblib==0.14.1 python-jenkins==1.6.0 pylint==2.4.4 natsort==7.0.0 google-api-python-client==1.7.11 google-auth==1.10.1 google-auth-httplib2==0.0.3 && \
+    pip install joblib==0.14.1 python-jenkins==1.8.0 pylint==2.4.4 natsort==7.0.0 google-api-python-client==1.7.11 google-auth==1.10.1 google-auth-httplib2==0.0.3 && \
     rm -rf /tmp/*.zip && \
     apt-get remove -y unzip lsb-release apt-utils && \
     apt-get clean && \
