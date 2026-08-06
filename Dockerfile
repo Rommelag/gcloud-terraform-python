@@ -20,6 +20,11 @@ RUN curl -L https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraf
     unzip -o /tmp/packer.zip -d /usr/local/bin/ && \
     rm -rf /tmp/*.zip
 
+# Install python dependencies - uv
+ADD https://astral.sh/uv/install.sh /uv-installer.sh
+RUN sh /uv-installer.sh && rm /uv-installer.sh
+ENV PATH="/root/.local/bin/:$PATH"
+
 RUN pip install joblib==0.14.1 python-jenkins==1.6.0 pylint==2.4.4 natsort==7.0.0 google-api-python-client==1.7.11 google-auth==1.10.1 google-auth-httplib2==0.0.3
 
 RUN apt-get remove -y unzip apt-utils && apt-get clean && rm -rf /var/lib/apt/lists/*
